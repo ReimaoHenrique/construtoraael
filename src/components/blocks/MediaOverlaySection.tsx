@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function MediaOverlaySection() {
   return (
-    <section>
+    <section className="bg-[radial-gradient(circle_at_1.5px_1.5px,rgba(0,0,0,0.1)_1px,transparent_0)]  bg-size-[20px_20px]">
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-10 px-5">
         <div>
           <h2 className="text-center text-3xl font-semibold mt-6 mb-3">

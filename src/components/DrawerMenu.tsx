@@ -1,34 +1,34 @@
-'use client'
+'use client';
 
-import { Button } from "@/components/ui/button"
+import { Button } from '@/components/ui/button';
 import {
   Drawer,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer"
-import Link from "next/link"
-import { Separator } from "@/components/ui/separator"
+} from '@/components/ui/drawer';
+import Link from 'next/link';
+import { Separator } from '@/components/ui/separator';
 
 const navItems = [
-  { label: "People", href: "/people" },
-  { label: "Projects", href: "/projects" },
-  { label: "Approach", href: "/approach" },
-  { label: "Careers", href: "/careers" },
-  { label: "Suppliers", href: "/suppliers" },
-  { label: "Media", href: "/media" },
-  { label: "Impact", href: "/impact" },
-  { label: "Report", href: "/report" },
-  { label: "History", href: "/history" },
-  { label: "Contact", href: "/contact" },
-]
+  { label: 'People', href: '/people' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Approach', href: '/approach' },
+  { label: 'Careers', href: '/careers' },
+  { label: 'Suppliers', href: '/suppliers' },
+  { label: 'Media', href: '/media' },
+  { label: 'Impact', href: '/impact' },
+  { label: 'Report', href: '/report' },
+  { label: 'History', href: '/history' },
+  { label: 'Contact', href: '/contact' },
+];
 
 export function DrawerMenu() {
   return (
     <Drawer direction="top">
       <DrawerTrigger asChild>
-        <Button 
+        <Button
           variant="outline"
           className="
             bg-white/10 backdrop-blur-md 
@@ -49,7 +49,7 @@ export function DrawerMenu() {
           data-[vaul-drawer-direction=top]:rounded-b-2xl
           focus-visible:outline-none
           overflow-y-auto
-          bg-black/30
+          bg-blue-950/60 
           backdrop-blur-lg
           border border-white/10
           shadow-xl
@@ -57,7 +57,7 @@ export function DrawerMenu() {
         "
       >
         <DrawerHeader className="border-b border-white/10 pb-5">
-          <DrawerTitle 
+          <DrawerTitle
             className="
               text-center 
               text-2xl font-bold 
@@ -92,5 +92,5 @@ export function DrawerMenu() {
         </nav>
       </DrawerContent>
     </Drawer>
-  )
+  );
 }
