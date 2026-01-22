@@ -1,0 +1,14 @@
+{
+  "right": {
+    "title": "Engenharia que constrói o futuro",
+    "description": "Soluções industriais completas com foco em eficiência, segurança e excelência operacional.",
+    "buttonText": "Fale conosco",
+    "videoSrc": "/videos/construcao.mp4"
+  },
+  "left": {
+    "title": "Inovação em cada projeto",
+    "description": "Compromisso com prazos, qualidade e sustentabilidade em todas as etapas.",
+    "buttonText": "Conheça nossos serviços",
+    "videoSrc": "/videos/engenharia-inovacao.mp4"
+  }
+}

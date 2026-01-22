@@ -5,14 +5,16 @@ import { MaqueeLogos } from '@/components/maqueeParceiros';
 import { CardImage } from '@/components/blocks/CardProject';
 import { DotPattern } from '@/components/ui/dot-pattern';
 import { cn } from '@/lib/utils';
+import { MediaOverlayRight } from '@/components/blocks/MediaOverlayRight';
 
+import right from '@/data/index-content.json';
 import cards from '@/data/cardcomponente.json';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <h1 className="text-4xl font-bold text-center my-20">Nossos Parceiros</h1>
+      <h1 className=" text-4xl font-bold text-center my-20">Nossos Parceiros</h1>
       <MaqueeLogos />
       <MediaOverlaySection />
       <MediaOverlayLeft />
@@ -31,6 +33,7 @@ export default function Home() {
             />
           ))}
         </main>
+        <MediaOverlayRight />
       </div>
     </>
   );
