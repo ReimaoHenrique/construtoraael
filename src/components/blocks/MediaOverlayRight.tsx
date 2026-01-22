@@ -1,10 +1,13 @@
 // src/components/MediaOverlayRight.tsx
 'use client';
+import Link from 'next/link';
+
 export function MediaOverlayRight({
   title = 'Engenharia que constrói o futuro',
   description = 'Soluções industriais completas com foco em eficiência, segurança e excelência operacional.',
   buttonText = 'Fale conosco',
   videoSrc = '/videos/construcao.mp4', // fallback pro seu vídeo original
+  link = '/',
 }) {
   return (
     <section>
@@ -35,9 +38,11 @@ export function MediaOverlayRight({
           </div>
 
           <div className="mt-8 md:mt-10">
-            <button className="px-8 py-4 rounded-xl bg-white text-black font-semibold text-lg hover:bg-gray-100 active:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl">
-              {buttonText}
-            </button>
+            <Link href={link}>
+              <button className="px-8 py-4 rounded-xl bg-white text-black font-semibold text-lg hover:bg-gray-100 active:bg-gray-200 transition-all duration-300 shadow-lg hover:shadow-xl">
+                {buttonText}
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,23 +1,32 @@
-import { MediaOverlayLeft } from '@/components/blocks/MediaOverlayLeft';
-import { MediaOverlaySection } from '@/components/blocks/MediaOverlaySection';
 import Hero from '@/components/hero';
 import { MaqueeLogos } from '@/components/maqueeParceiros';
 import { CardImage } from '@/components/blocks/CardProject';
 import { DotPattern } from '@/components/ui/dot-pattern';
 import { cn } from '@/lib/utils';
-import { MediaOverlayRight } from '@/components/blocks/MediaOverlayRight';
+import { MediaOverlay } from '@/components/blocks/MediaOverlay';
 
-import right from '@/data/index-content.json';
+import indexContent from '@/data/index-content.json';
 import cards from '@/data/cardcomponente.json';
+
+interface MediaOverlayItem {
+  id: string;
+  variant: 'left' | 'right' | 'section';
+  title: string;
+  description: string;
+  buttonText: string;
+  videoSrc: string;
+  link: string;
+}
 
 export default function Home() {
   return (
     <>
-      <Hero />
+     {/* <Hero /> */}
       <h1 className=" text-4xl font-bold text-center my-20">Nossos Parceiros</h1>
       <MaqueeLogos />
-      <MediaOverlaySection />
-      <MediaOverlayLeft />
+      
+
+      
       <div className="bg-background relative flex h-500px w-full flex-col items-center justify-center overflow-hidden rounded-lg border">
         <DotPattern
           className={cn('mask-image:radial-gradient(300px_circle_at_center,white,transparent)')}
@@ -33,7 +42,14 @@ export default function Home() {
             />
           ))}
         </main>
-        <MediaOverlayRight />
+ <MediaOverlay 
+ variant="right"
+ title="Engenharia que constrói o futuro"
+ description="Soluções industriais completas com foco em eficiência, segurança e excelência operacional."
+ buttonText="Fale conosco"
+ videoSrc="/videos/construcao.mp4"
+ link="/contato"
+/>
       </div>
     </>
   );
