@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Rust Backend Meetup",
+    "description": "Arquitetura de APIs performáticas com Rust e Axum.",
+    "image": "/predio.jpg",
+    "cta": "Ver evento"
+  },
+  {
+    "id": 2,
+    "title": "Next.js Design Systems",
+    "description": "Como construir UI escalável sem perder sanidade.",
+    "image": "/predio.jpg",
+    "cta": "Inscrever-se"
+  },
+  {
+    "id": 3,
+    "title": "Linux Infra Night",
+    "description": "Containers, namespaces e porque systemd não é o vilão.",
+    "image": "/predio.jpg",
+    "cta": "Participar"
+  },
+  {
+    "id": 4,
+    "title": "Linux Infra Night",
+    "description": "Containers, namespaces e porque systemd não é o vilão.",
+    "image": "/predio.jpg",
+    "cta": "Participar"
+  }
+]
