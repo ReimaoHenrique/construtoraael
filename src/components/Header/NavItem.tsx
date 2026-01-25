@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import type { NavLink } from '@/models/navigation';
@@ -11,29 +12,33 @@ export function NavItem({ item }: { item: NavLink }) {
   const toggle = () => setIsOpen((v) => !v);
   const close = () => setIsOpen(false);
 
-  // Clique fora para fechar
+  // Fecha ao clicar fora
   useEffect(() => {
     if (!isOpen) return;
+
     const handler = (e: MouseEvent) => {
       if (!containerRef.current?.contains(e.target as Node)) {
         close();
       }
     };
+
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
   }, [isOpen]);
 
-  // Tecla ESC para fechar
+  // Fecha com ESC
   useEffect(() => {
     if (!isOpen) return;
+
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') close();
     };
+
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
   }, [isOpen]);
 
-  // Foco no primeiro item ao abrir
+  // Foco automático no primeiro link ao abrir
   useEffect(() => {
     if (isOpen) {
       requestAnimationFrame(() => {
@@ -42,8 +47,8 @@ export function NavItem({ item }: { item: NavLink }) {
     }
   }, [isOpen]);
 
-  // Caso não tenha sublinks → link simples
-  if (!item.sublinks) {
+  // Caso seja link simples (sem sublinks)
+  if (!item.sublinks || item.sublinks.length === 0) {
     return (
       <Link
         href={item.href}
@@ -54,6 +59,7 @@ export function NavItem({ item }: { item: NavLink }) {
     );
   }
 
+  // Item com dropdown / mega menu
   return (
     <div ref={containerRef} className="relative">
       {/* Botão trigger */}
@@ -82,6 +88,7 @@ export function NavItem({ item }: { item: NavLink }) {
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
@@ -97,33 +104,33 @@ export function NavItem({ item }: { item: NavLink }) {
           "
           style={{ height: '50vh' }}
           role="menu"
-          aria-label={`Menu de ${item.label}`}
+          aria-label={`Submenu de ${item.label}`}
         >
           <div className="container mx-auto px-6 py-10 h-full">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 h-full">
-              {/* Coluna principal / introdução */}
+              {/* Coluna de introdução */}
               <div className="space-y-4">
                 <h3 className="text-xl font-bold text-gray-900">{item.label}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Soluções completas em {item.label.toLowerCase()} com qualidade, tecnologia de
                   ponta e prazo garantido.
                 </p>
-                {/* Você pode adicionar mais conteúdo aqui no futuro (ícones, CTA, etc.) */}
+                {/* Opcional: CTA, ícones, etc */}
               </div>
 
-              {/* Área com imagem de fundo + overlay 60% + cards */}
+              {/* Área principal com imagem de fundo + cards */}
               <div className="col-span-3 relative rounded-2xl overflow-hidden shadow-inner">
-                {/* Background image + overlay preto 60% */}
+                {/* Background + overlay */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{
-                    backgroundImage: `url('/images/construction-bg.jpg')`, // ← TROQUE PELO SEU CAMINHO DE IMAGEM
+                    backgroundImage: `url('/images/construction-bg.jpg')`, // ← substitua pela imagem real
                   }}
                 >
                   <div className="absolute inset-0 bg-black/60" />
                 </div>
 
-                {/* Conteúdo (cards) por cima */}
+                {/* Cards sobrepostos */}
                 <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 md:p-8 h-full">
                   {item.sublinks.map((sub, idx) => (
                     <Link
