@@ -1,6 +1,4 @@
 'use client';
-import { Globe } from '@/components/ui/globe';
-
 
 import { motion } from 'framer-motion';
 
@@ -66,7 +64,6 @@ export function ContactHero() {
           </motion.a>
         </div>
       </motion.div>
-    
     </section>
   );
 }
