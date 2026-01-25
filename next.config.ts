@@ -48,6 +48,10 @@ const nextConfig = {
         source: '/incorporacao-imobiliaria',
         destination: '/pages/servicos/incorporacao-imobiliaria',
       },
+      {
+        source: '/Servicos',
+        destination: '/pages/servicos',
+      },
     ];
   },
 };

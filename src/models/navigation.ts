@@ -7,7 +7,7 @@ export interface NavLink {
 
 export const navigationData: NavLink[] = [
   {
-    label: 'Serviços',
+    label: 'Orçamentos',
     href: '/servicos',
     sublinks: [
       { label: 'Obras Industriais', href: '/servicos/obras-industriais' },
@@ -45,6 +45,11 @@ export const navigationData: NavLink[] = [
   {
     label: 'Portfólio',
     href: '/projetos',
+  },
+
+  {
+    label: 'Servicos',
+    href: '/servicos',
   },
   {
     label: 'Contato',
