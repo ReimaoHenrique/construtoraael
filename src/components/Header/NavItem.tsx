@@ -26,7 +26,7 @@ export function NavItem({ item }: { item: NavLink }) {
     return () => document.removeEventListener('mousedown', handler);
   }, [isOpen]);
 
-  // Fecha com ESC
+  // Fecha com tecla ESC
   useEffect(() => {
     if (!isOpen) return;
 
@@ -38,7 +38,7 @@ export function NavItem({ item }: { item: NavLink }) {
     return () => document.removeEventListener('keydown', handler);
   }, [isOpen]);
 
-  // Foco automático no primeiro link ao abrir
+  // Foco automático no primeiro item do submenu ao abrir
   useEffect(() => {
     if (isOpen) {
       requestAnimationFrame(() => {
@@ -47,7 +47,7 @@ export function NavItem({ item }: { item: NavLink }) {
     }
   }, [isOpen]);
 
-  // Caso seja link simples (sem sublinks)
+  // Link simples (sem sublinks)
   if (!item.sublinks || item.sublinks.length === 0) {
     return (
       <Link
@@ -59,10 +59,10 @@ export function NavItem({ item }: { item: NavLink }) {
     );
   }
 
-  // Item com dropdown / mega menu
+  // Item com mega menu / dropdown
   return (
     <div ref={containerRef} className="relative">
-      {/* Botão trigger */}
+      {/* Botão trigger do menu */}
       <button
         type="button"
         aria-haspopup="true"
@@ -108,29 +108,29 @@ export function NavItem({ item }: { item: NavLink }) {
         >
           <div className="container mx-auto px-6 py-10 h-full">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 h-full">
-              {/* Coluna de introdução */}
+              {/* Coluna de introdução / texto descritivo */}
               <div className="space-y-4">
                 <h3 className="text-xl font-bold text-gray-900">{item.label}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Soluções completas em {item.label.toLowerCase()} com qualidade, tecnologia de
                   ponta e prazo garantido.
                 </p>
-                {/* Opcional: CTA, ícones, etc */}
+                {/* Aqui você pode adicionar CTA, ícones ou mais conteúdo no futuro */}
               </div>
 
-              {/* Área principal com imagem de fundo + cards */}
+              {/* Área com imagem de fundo + cards de sublinks */}
               <div className="col-span-3 relative rounded-2xl overflow-hidden shadow-inner">
-                {/* Background + overlay */}
+                {/* Imagem de fundo com overlay */}
                 <div
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{
-                    backgroundImage: `url('/images/construction-bg.jpg')`, // ← substitua pela imagem real
+                    backgroundImage: `url('/images/construction-bg.jpg')`, // ← substitua pela imagem real do seu projeto
                   }}
                 >
                   <div className="absolute inset-0 bg-black/60" />
                 </div>
 
-                {/* Cards sobrepostos */}
+                {/* Cards dos sublinks */}
                 <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 md:p-8 h-full">
                   {item.sublinks.map((sub, idx) => (
                     <Link
@@ -150,7 +150,9 @@ export function NavItem({ item }: { item: NavLink }) {
                       "
                     >
                       <div className="font-semibold text-gray-900 text-lg">{sub.label}</div>
-                      {sub.description && (
+
+                      {/* Description totalmente opcional e seguro */}
+                      {sub?.description && (
                         <p className="mt-2 text-sm text-gray-700 leading-relaxed">
                           {sub.description}
                         </p>

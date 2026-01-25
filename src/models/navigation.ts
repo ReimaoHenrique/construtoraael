@@ -2,6 +2,7 @@ export interface NavLink {
   label: string;
   href: string;
   sublinks?: NavLink[];
+  description?: string;
 }
 
 export const navigationData: NavLink[] = [
