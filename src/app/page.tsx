@@ -10,6 +10,7 @@ import cards from '@/data/cardcomponente.json';
 export default function Home() {
   return (
     <>
+      <Hero />
       <h1 className="text-4xl font-bold text-center my-20">Nossos Parceiros</h1>
 
       <MaqueeLogos />
