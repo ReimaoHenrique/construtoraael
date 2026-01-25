@@ -1,34 +1,23 @@
 import { CardImage } from '@/components/blocks/CardProject';
 import { Hero } from '@/components/heroImage';
+import cards from '@/data/cardcomponente.json';
 
 export default function Page() {
   return (
     <>
       <Hero title="Projetos" image="/Projetos.jpg" />
 
-      <main className="max-w-6xl mx-auto px-6 py-12">
-        <h1 className="text-4xl font-bold text-center mb-12">Projetos</h1>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <h1 className="text-4xl font-bold text-center mb-12">Obras que Transformam Realidades</h1>
+      <main className="mx-auto my-10 flex flex-wrap justify-center gap-6 px-6">
+        {cards.map((card) => (
           <CardImage
-            title="Projeto Exemplo"
-            description="Descrição do projeto exemplo."
-            image="/Projetos.jpg"
-            cta="Ver detalhes"
+            key={card.id}
+            title={card.title}
+            description={card.description}
+            image={card.image}
+            cta={card.cta}
           />
-          <CardImage
-            title="Projeto Exemplo"
-            description="Descrição do projeto exemplo."
-            image="/Projetos.jpg"
-            cta="Ver detalhes"
-          />
-          <CardImage
-            title="Projeto Exemplo"
-            description="Descrição do projeto exemplo."
-            image="/Projetos.jpg"
-            cta="Ver detalhes"
-          />
-        </div>
+        ))}
       </main>
     </>
   );

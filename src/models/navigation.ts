@@ -43,7 +43,7 @@ export const navigationData: NavLink[] = [
   },
   {
     label: 'Portfólio',
-    href: '/portfolio',
+    href: '/projetos',
   },
   {
     label: 'Contato',
