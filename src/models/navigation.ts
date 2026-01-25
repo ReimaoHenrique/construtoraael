@@ -6,65 +6,47 @@ export interface NavLink {
 
 export const navigationData: NavLink[] = [
   {
-    label: 'People',
-    href: '/people',
+    label: 'Serviços',
+    href: '/servicos',
     sublinks: [
-      { label: 'Our Culture', href: '/people/culture' },
-      { label: 'Inclusion & Diversity', href: '/people/diversity' },
-      { label: 'Alumni', href: '/people/alumni' },
-      { label: 'Ethics', href: '/people/ethics' },
+      { label: 'Obras Industriais', href: '/servicos/obras-industriais' },
+      { label: 'Obras Comerciais', href: '/servicos/obras-comerciais' },
+      { label: 'Obras Hospitalares', href: '/servicos/obras-hospitalares' },
+      { label: 'Hotelaria', href: '/servicos/hotelaria' },
+      {
+        label: 'Infraestrutura',
+        href: '/servicos/infraestrutura',
+        sublinks: [
+          { label: 'Adutoras', href: '/servicos/infraestrutura/adutoras' },
+          { label: 'Drenagem', href: '/servicos/infraestrutura/drenagem' },
+          { label: 'Pavimentação', href: '/servicos/infraestrutura/pavimentacao' },
+          { label: 'Redes de Energia', href: '/servicos/infraestrutura/redes-de-energia' },
+          { label: 'Subestações', href: '/servicos/infraestrutura/subestacoes' },
+          { label: 'Tubulações', href: '/servicos/infraestrutura/tubulacoes' },
+          { label: 'Redes de Esgoto', href: '/servicos/infraestrutura/redes-de-esgoto' },
+          { label: 'ETA', href: '/servicos/infraestrutura/eta' },
+          { label: 'ETE', href: '/servicos/infraestrutura/ete' },
+        ],
+      },
+      { label: 'Projetos de Engenharia', href: '/servicos/projetos-de-engenharia' },
+      { label: 'Incorporação Imobiliária', href: '/servicos/incorporacao-imobiliaria' },
     ],
   },
   {
-    label: 'Projects',
-    href: '/projects',
+    label: 'Empresa',
+    href: '/empresa',
     sublinks: [
-      { label: 'Featured Projects', href: '/projects/featured' },
-      { label: 'Infrastructure', href: '/projects/infrastructure' },
-      { label: 'Energy', href: '/projects/energy' },
-      { label: 'Defense & Space', href: '/projects/defense' },
+      { label: 'Sobre', href: '/empresa/sobre' },
+      { label: 'Valores', href: '/empresa/valores' },
+      { label: 'Certificações', href: '/empresa/certificacoes' },
     ],
   },
   {
-    label: 'Approach',
-    href: '/approach',
-    sublinks: [
-      { label: 'Expertise', href: '/approach/expertise' },
-      { label: 'Sustainability', href: '/approach/sustainability' },
-      { label: 'Innovation', href: '/approach/innovation' },
-    ],
+    label: 'Portfólio',
+    href: '/portfolio',
   },
   {
-    label: 'Careers',
-    href: '/careers',
-    sublinks: [
-      { label: 'Professionals', href: '/careers/professionals' },
-      { label: 'Early Career', href: '/careers/early-career' },
-      { label: 'Life at Bechtel', href: '/careers/life-at-bechtel' },
-    ],
-  },
-  {
-    label: 'Suppliers',
-    href: '/suppliers',
-  },
-  {
-    label: 'Media',
-    href: '/media',
-    sublinks: [
-      { label: 'News Releases', href: '/media/news' },
-      { label: 'Media Contacts', href: '/media/contacts' },
-    ],
-  },
-  {
-    label: 'Impact Report',
-    href: '/impact-report',
-  },
-  {
-    label: 'History',
-    href: '/history',
-  },
-  {
-    label: 'Contact',
-    href: '/contact',
+    label: 'Contato',
+    href: '/contato',
   },
 ];

@@ -19,28 +19,40 @@ export function MediaOverlay({
   link = '/',
 }: MediaOverlayProps) {
   // Variante Section
+  // Variante Section (corrigida)
   if (variant === 'section') {
     return (
-      <section className="bg-[radial-gradient(circle_at_1.5px_1.5px,rgba(0,0,0,0.1)_1px,transparent_0)] bg-size-[20px_20px]">
-        <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-10 px-5">
-          <div>
-            <h2 className="text-center text-3xl font-semibold mt-6 mb-3">{title}</h2>
-            <p className="max-w-3xl text-center text-lg mb-5">{description}</p>
-            <Link href={link} className="block text-center mt-5">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                {buttonText}
-              </button>
-            </Link>
-          </div>
-          <div className="ml-2 relative w-full max-w-5xl h-128 bg-gray-100 rounded-2xl overflow-hidden shadow-md">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              src={videoSrc}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+      <section className="bg-[radial-gradient(circle_at_1.5px_1.5px,rgba(0,0,0,0.1)_1px,transparent_0)] bg-[length:20px_20px] py-16 md:py-24 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-5 lg:px-0">
+          <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-0">
+            {/* Texto - lado esquerdo */}
+            <div className="ml-10 lg:w-5/12 xl:w-1/2 pr-0 lg:pr-12 xl:pr-16 text-center lg:text-left z-10">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-5 leading-tight">{title}</h2>
+              <p className="text-lg sm:text-xl text-gray-700 mb-8 max-w-xl mx-auto lg:mx-0">
+                {description}
+              </p>
+              <Link href={link} className="inline-block">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl text-lg shadow-lg transition">
+                  {buttonText}
+                </button>
+              </Link>
+            </div>
+
+            {/* Vídeo - metade direita, colado na borda */}
+            <div className="lg:w-7/12 xl:w-1/2 lg:-mr-5 xl:-mr-10 relative mt-8 lg:mt-0">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:h-[520px] xl:h-[620px] rounded-l-3xl lg:rounded-l-3xl lg:rounded-r-none overflow-hidden shadow-2xl bg-black">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  src={videoSrc}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => console.error('Erro ao carregar vídeo:', e)}
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent pointer-events-none lg:hidden" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -124,5 +136,3 @@ export function MediaOverlay({
     </section>
   );
 }
-
-
