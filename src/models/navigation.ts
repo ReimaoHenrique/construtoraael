@@ -36,8 +36,8 @@ export const navigationData: NavLink[] = [
     label: 'Empresa',
     href: '/empresa',
     sublinks: [
-      { label: 'Sobre', href: '/empresa/sobre' },
-      { label: 'Valores', href: '/empresa/valores' },
+      { label: 'Sobre', href: '/history' },
+      { label: 'Valores', href: '/principles' },
       { label: 'Certificações', href: '/empresa/certificacoes' },
     ],
   },
@@ -47,6 +47,6 @@ export const navigationData: NavLink[] = [
   },
   {
     label: 'Contato',
-    href: '/contato',
+    href: '/contact',
   },
 ];
