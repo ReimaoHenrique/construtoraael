@@ -7,7 +7,7 @@ export interface NavLink {
 
 export const navigationData: NavLink[] = [
   {
-    label: 'Orçamentos',
+    label: 'Serviços',
     href: '/servicos',
     sublinks: [
       { label: 'Obras Industriais', href: '/servicos/obras-industriais' },
@@ -37,19 +37,16 @@ export const navigationData: NavLink[] = [
     label: 'Empresa',
     href: '/empresa',
     sublinks: [
-      { label: 'Sobre', href: '/history' },
-      { label: 'Valores', href: '/principles' },
+      { label: 'Sobre a Empresa', href: '/empresa/sobre' },
+      { label: 'Missão, Visão e Valores', href: '/empresa/missao-visao-valores' },
+      { label: 'Política da Qualidade', href: '/empresa/politica-da-qualidade' },
       { label: 'Certificações', href: '/empresa/certificacoes' },
+      { label: 'Portal de Denúncias', href: '/portal-de-denuncias' },
     ],
   },
   {
     label: 'Portfólio',
-    href: '/projetos',
-  },
-
-  {
-    label: 'Servicos',
-    href: '/servicos',
+    href: '/portfolio',
   },
   {
     label: 'Contato',
