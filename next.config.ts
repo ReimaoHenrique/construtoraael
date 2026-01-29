@@ -24,28 +24,28 @@ const nextConfig = {
         destination: '/pages/principles',
       },
       {
-        source: '/obras-industriais',
+        source: '/servicos/obras-industriais',
         destination: '/pages/servicos/obras-industriais',
       },
-      { source: '/obras-comerciais', destination: '/pages/servicos/obras-comerciais' },
+      { source: '/servicos/obras-comerciais', destination: '/pages/servicos/obras-comerciais' },
       {
-        source: '/obras-hospitalares',
+        source: '/servicos/obras-hospitalares',
         destination: '/pages/servicos/obras-hospitalares',
       },
       {
-        source: '/hotelaria',
+        source: '/servicos/hotelaria',
         destination: '/pages/servicos/hotelaria',
       },
       {
-        source: '/infraestrutura',
+        source: '/servicos/infraestrutura',
         destination: '/pages/servicos/infraestrutura',
       },
       {
-        source: '/projetos-de-engenharia',
+        source: '/servicos/projetos-de-engenharia',
         destination: '/pages/servicos/projetos-de-engenharia',
       },
       {
-        source: '/incorporacao-imobiliaria',
+        source: '/servicos/incorporacao-imobiliaria',
         destination: '/pages/servicos/incorporacao-imobiliaria',
       },
       {

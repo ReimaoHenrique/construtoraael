@@ -39,7 +39,7 @@ const servicosDestaque = [
     description:
       'Hotéis, resorts e pousadas com design funcional, conforto premium, áreas comuns atrativas e acabamentos de alto padrão para o setor de hospedagem.',
     image: '/Projetos.jpg',
-    href: '/servicos/obras-hotelaria',
+    href: '/servicos/hotelaria',
   },
   {
     title: 'Incorporação Imobiliária',
@@ -71,10 +71,16 @@ export default function ServicosPage() {
       <Hero title="Nossos Serviços" image="/servicos-hero.jpg" />
 
       {/* Destaques */}
-      <section className="py-8 md:py-10 bg-white border-b">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-center text-2xl md:text-3xl font-bold mb-6 px-1">
-            Nossos Serviços em Destaque
+      <section className="relative py-8 md:py-10 bg-white border-b overflow-hidden">
+        <DotPattern
+          className={cn(
+            'pointer-events-none absolute inset-0 -z-10 mask-image:radial-gradient(300px_circle_at_center,white,transparent)',
+          )}
+        />
+
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <h2 className="text-center text-2xl md:text-3xl font-bold mb-10 mt-2 px-4 leading-tight max-w-3xl mx-auto text-gray-900">
+            Construindo com precisão: conheça todos os nossos serviços especializados
           </h2>
 
           <div className="flex gap-4 md:gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory">
@@ -89,7 +95,7 @@ export default function ServicosPage() {
       <section className="relative isolate py-16 md:py-20 bg-gray-50 overflow-hidden">
         <DotPattern
           className={cn(
-            'pointer-events-none absolute inset-0 z-0 mask-image:radial-gradient(300px_circle_at_center,white,transparent)',
+            'pointer-events-none absolute inset-0 -z-10 mask-image:radial-gradient(300px_circle_at_center,white,transparent)',
           )}
         />
 
@@ -99,8 +105,14 @@ export default function ServicosPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="relative py-16 md:py-20 bg-white overflow-hidden">
+        <DotPattern
+          className={cn(
+            'pointer-events-none absolute inset-0 -z-10 mask-image:radial-gradient(300px_circle_at_center,white,transparent)',
+          )}
+        />
+
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-14">
             Perguntas Frequentes
           </h2>

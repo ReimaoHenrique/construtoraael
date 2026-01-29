@@ -48,7 +48,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 -ml-1.5 sm:ml-0">
             <Image
-              src="/logo.avif"
+              src="/logo.svg"
               alt="Logo"
               width={80}
               height={60}

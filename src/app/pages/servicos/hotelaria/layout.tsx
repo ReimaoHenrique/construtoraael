@@ -27,14 +27,6 @@ export default function ProjetosLayout({ children }: { children: ReactNode }) {
 
       <main className="min-h-screen bg-gray-50">
         {/* Exemplo de seção compartilhada */}
-        <section className="py-12 bg-white border-b">
-          <div className="container mx-auto px-6 text-center">
-            <h1 className="text-4xl font-bold text-gray-800">Nossos Projetos</h1>
-            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-              Obras executadas com rapidez, qualidade e compromisso.
-            </p>
-          </div>
-        </section>
 
         {/* O conteúdo da página (page.tsx) entra aqui */}
         {children}
