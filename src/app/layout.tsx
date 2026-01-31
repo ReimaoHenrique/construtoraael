@@ -42,10 +42,10 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og-image.png', // Coloque o arquivo em public/og-image.png
-        width: 1200,
-        height: 630,
+        width: 424,
+        height: 754,
         alt: 'Construtora Andrade & Lima - Obras com qualidade e responsabilidade',
-        type: 'image/png', // Especifica PNG explicitamente
+        type: 'image/png',
       },
     ],
   },
@@ -59,7 +59,6 @@ export const metadata: Metadata = {
     images: ['/og-image.png'], // Pode ser o mesmo PNG
   },
 
-  // Robots (já estava bom)
   robots: {
     index: true,
     follow: true,

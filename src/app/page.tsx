@@ -18,13 +18,14 @@ export default function Home() {
       <Hero />
       <h1 className="text-4xl font-bold text-center my-20">Nossos Parceiros</h1>
       <MarqueeLogos />
-
+      <div>
+        <h1 className="text-4xl font-bold text-center my-20">Nossos Projetos realizados </h1>
+      </div>
       <main className="mx-auto my-10 flex flex-wrap justify-center gap-6 px-6">
         {cards.map((card) => (
           <CardImage key={card.id} {...card} />
         ))}
       </main>
-
       <section className="relative w-full overflow-hidden py-24">
         <DotPattern
           className={cn(

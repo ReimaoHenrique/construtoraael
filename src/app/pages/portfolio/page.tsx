@@ -7,7 +7,7 @@ export default function Page() {
     <>
       <Hero title="Projetos" image="/Projetos.jpg" />
 
-      <h1 className="text-4xl font-bold text-center mb-12">Obras que Transformam Realidades</h1>
+      <h1 className="text-4xl font-bold text-center my-20">Nossos Projetos realizados </h1>
       <main className="mx-auto my-10 flex flex-wrap justify-center gap-6 px-6">
         {cards.map((card) => (
           <CardImage

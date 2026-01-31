@@ -1,30 +1,24 @@
 [
   {
     "id": 1,
-    "title": "Rust Backend Meetup",
-    "description": "Arquitetura de APIs performáticas com Rust e Axum.",
-    "image": "/predio.jpg",
-    "cta": "Ver evento"
-  },
-  {
-    "id": 2,
-    "title": "Next.js Design Systems",
-    "description": "Como construir UI escalável sem perder sanidade.",
-    "image": "/predio.jpg",
-    "cta": "Inscrever-se"
-  },
-  {
-    "id": 3,
-    "title": "Linux Infra Night",
-    "description": "Containers, namespaces e porque systemd não é o vilão.",
-    "image": "/predio.jpg",
-    "cta": "Participar"
-  },
-  {
-    "id": 4,
-    "title": "Linux Infra Night",
-    "description": "Containers, namespaces e porque systemd não é o vilão.",
-    "image": "/predio.jpg",
-    "cta": "Participar"
+    "title": "Complexo Industrial Offshore Premium",
+    "description": "Projeto de infraestrutura industrial para apoio às operações offshore da Petrobras, com foco em embarcações de suporte, sensores sísmicos e instalações sustentáveis no Recôncavo Baiano.",
+    "image": "/projetos/projeto1/foto0.jpg",
+    "cta": "Ver projeto",
+    "slug": "projeto1",
+    "heroTitle": "Complexo Industrial Offshore Premium",
+    "heroDescription": "Uma instalação estratégica para suporte às operações da Petrobras na Bacia de Campos e no pré-sal baiano, combinando tecnologia de ponta, sustentabilidade e alta capacidade operacional.",
+    "fullDescription": "O Complexo Industrial Offshore Premium representa um avanço na infraestrutura de apoio à exploração e produção de óleo e gás no Brasil. Desenvolvido em parceria com a Petrobras, o projeto inclui a construção e integração de instalações para fabricação e manutenção de embarcações de apoio offshore (ORSV e PSV), nós sísmicos submarinos OD OBN e módulos de processamento sustentável. Localizado próximo ao Estaleiro Enseada e ao Canteiro de São Roque do Paraguaçu, o complexo abrange 18.500 m² de área construída, com ênfase em energia renovável (painéis solares para 60% do consumo comum), tratamento de efluentes e redução de emissões. Gerou cerca de 1.200 empregos diretos durante a fase de construção e reforça a cadeia produtiva local na Bahia.",
+    "images": [
+      "/projetos/projeto1/foto0.jpg",
+      "/projetos/projeto1/foto2.jpg",
+      "/projetos/projeto1/foto3.jpg",
+      "/projetos/projeto1/foto4.jpg",
+      "/projetos/projeto1/foto5.jpg"
+    ],
+    "location": "Maragogipe / São Roque do Paraguaçu, Recôncavo Baiano, BA (próximo ao Estaleiro Enseada e operações da Petrobras)",
+    "area": "18.500 m² de área construída + 12.000 m² de áreas técnicas e verdes",
+    "units": "6 embarcações de apoio offshore + 660 nós sísmicos fabricados",
+    "status": "Concluído em 2025"
   }
 ]

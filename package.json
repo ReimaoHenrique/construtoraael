@@ -19,6 +19,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cobe": "^0.6.5",
+    "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.28.1",
     "lucide-react": "^0.562.0",
     "motion": "^12.28.2",
@@ -27,7 +28,7 @@
     "react-dom": "19.2.3",
     "tailwind-merge": "^3.4.0",
     "vaul": "^1.1.2",
-    "vercel": "^50.9.1"
+    "vercel": "^50.9.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

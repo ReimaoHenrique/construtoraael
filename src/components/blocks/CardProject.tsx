@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -7,9 +8,10 @@ interface CardImageProps {
   description: string;
   image: string;
   cta: string;
+  slug?: string;
 }
 
-export function CardImage({ title, description, image, cta }: CardImageProps) {
+export function CardImage({ title, description, image, cta, slug }: CardImageProps) {
   return (
     <Card
       className={`
@@ -70,17 +72,33 @@ export function CardImage({ title, description, image, cta }: CardImageProps) {
         </CardHeader>
 
         <div className="mt-6 md:mt-8">
-          <Button
-            size="lg"
-            className="
-              w-full h-12 md:h-14 text-base md:text-lg font-semibold
-              bg-white/95 hover:bg-white text-black shadow-xl
-              hover:shadow-2xl transition-all duration-300
-              border border-white/30
-            "
-          >
-            {cta}
-          </Button>
+          {slug ? (
+            <Link href={`/projetos/${slug}`}>
+              <Button
+                size="lg"
+                className="
+                  w-full h-12 md:h-14 text-base md:text-lg font-semibold
+                  bg-white/95 hover:bg-white text-black shadow-xl
+                  hover:shadow-2xl transition-all duration-300
+                  border border-white/30
+                "
+              >
+                {cta}
+              </Button>
+            </Link>
+          ) : (
+            <Button
+              size="lg"
+              className="
+                w-full h-12 md:h-14 text-base md:text-lg font-semibold
+                bg-white/95 hover:bg-white text-black shadow-xl
+                hover:shadow-2xl transition-all duration-300
+                border border-white/30
+              "
+            >
+              {cta}
+            </Button>
+          )}
         </div>
       </div>
     </Card>
