@@ -18,15 +18,19 @@ export const metadata: Metadata = {
   authors: [{ name: 'Construtora Andrade & Lima' }],
   creator: 'Construtora Andrade & Lima',
   metadataBase: new URL('https://www.construtoraael.com'),
+
+  // Ícones (já estava bom, mantive e organizei melhor)
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
     other: [
-      { rel: 'icon', url: '/favicon-32x32.png', sizes: '32x32' },
-      { rel: 'icon', url: '/favicon-16x16.png', sizes: '16x16' },
+      { rel: 'icon', url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { rel: 'icon', url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
   },
   manifest: '/site.webmanifest',
+
+  // Open Graph completo com PNG
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
@@ -35,7 +39,27 @@ export const metadata: Metadata = {
     title: 'Construtora Andrade & Lima',
     description:
       'Construção civil, reformas e incorporações com qualidade, prazo e responsabilidade técnica.',
+    images: [
+      {
+        url: '/og-image.png', // Coloque o arquivo em public/og-image.png
+        width: 1200,
+        height: 630,
+        alt: 'Construtora Andrade & Lima - Obras com qualidade e responsabilidade',
+        type: 'image/png', // Especifica PNG explicitamente
+      },
+    ],
   },
+
+  // Twitter/X Cards (melhora previews no X)
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Construtora Andrade & Lima',
+    description:
+      'Construção civil, reformas e incorporações com qualidade, prazo e responsabilidade técnica.',
+    images: ['/og-image.png'], // Pode ser o mesmo PNG
+  },
+
+  // Robots (já estava bom)
   robots: {
     index: true,
     follow: true,

@@ -1,0 +1,49 @@
+import type { MetadataRoute } from 'next';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://construtoraael.com'; 
+
+  // Data de hoje para lastModified (pode vir de git ou CMS depois)
+  const today = new Date().toISOString().split('T')[0];
+
+  return [
+    {
+      url: baseUrl,
+      lastModified: today,
+      changeFrequency: 'weekly',    
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/sobre`,
+      lastModified: today,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/servicos`,
+      lastModified: today,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/projetos`,
+      lastModified: today,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contato`,
+      lastModified: today,
+      changeFrequency: 'yearly',
+      priority: 0.7,
+    },
+    // Adicione mais páginas conforme sua navigationData
+    // Exemplo se tiver blog ou projetos dinâmicos no futuro:
+    // ...projects.map(p => ({
+    //   url: `${baseUrl}/projetos/${p.slug}`,
+    //   lastModified: p.updatedAt?.toISOString().split('T')[0] || today,
+    //   changeFrequency: 'monthly',
+    //   priority: 0.6,
+    // }))
+  ];
+}
