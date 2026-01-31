@@ -1,38 +1,37 @@
-// app/projetos/layout.tsx
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
-// Metadados simples e específicos para esta seção (sobrescrevem o root onde fizer sentido)
 export const metadata: Metadata = {
-  title: 'Projetos | Construtora Andrade e Lima',
+  title: 'Obras para Hotelaria | Construtora Andrade e Lima',
   description:
-    'Conheça nossos projetos de construções, reformas, galpões industriais e incorporações imobiliárias em Salvador e região.',
-  // Opcional: keywords, robots, etc. – mantenha mínimo se quiser leve
-  // keywords: ['construção civil', 'reformas Salvador', 'galpões pré-moldados'],
+    'Especialistas em obras para hotelaria: hotéis, resorts e pousadas com design funcional, conforto premium e acabamentos de alto padrão em Salvador e região.',
+  keywords: [
+    'obras hotelaria',
+    'construção hotéis',
+    'reforma hotéis',
+    'resorts',
+    'pousadas',
+    'construção hotelaria Salvador',
+    'obras turismo',
+  ],
   openGraph: {
-    title: 'Projetos - Construtora AEL',
-    description: 'Obras rápidas, seguras e de alta qualidade. Veja nosso portfólio.',
-    // url: 'https://www.construtoraael.com/projetos', // opcional
-    // images: '/og-projetos.jpg', // se tiver imagem específica
+    title: 'Obras para Hotelaria - Construtora AEL',
+    description:
+      'Hotéis, resorts e pousadas com design funcional, conforto premium e acabamentos de alto padrão para o setor de hospedagem.',
+    type: 'website',
+    // url: 'https://www.construtoraael.com/servicos/hotelaria',
   },
-  // Alternativa super simples se quiser ainda mais leve:
-  // title: { default: 'Projetos | Construtora AEL' },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Obras para Hotelaria - Construtora AEL',
+    description:
+      'Hotéis, resorts e pousadas com design funcional, conforto premium e acabamentos de alto padrão.',
+  },
+  alternates: {
+    canonical: '/servicos/hotelaria',
+  },
 };
 
-export default function ProjetosLayout({ children }: { children: ReactNode }) {
-  return (
-    <>
-      {/* Aqui você pode colocar UI compartilhada só para a seção /projetos */}
-      {/* Ex: um header diferente, sidebar, breadcrumbs, etc. */}
-
-      <main className="min-h-screen bg-gray-50">
-        {/* Exemplo de seção compartilhada */}
-
-        {/* O conteúdo da página (page.tsx) entra aqui */}
-        {children}
-      </main>
-
-      {/* Footer específico da seção, se quiser */}
-    </>
-  );
+export default function HotelariaLayout({ children }: { children: ReactNode }) {
+  return <>{children}</>;
 }

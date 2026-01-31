@@ -1,38 +1,45 @@
-// app/projetos/layout.tsx
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
-// Metadados simples e específicos para esta seção (sobrescrevem o root onde fizer sentido)
 export const metadata: Metadata = {
-  title: 'Projetos | Construtora Andrade e Lima',
+  title: 'Serviços | Construtora Andrade e Lima',
   description:
-    'Conheça nossos projetos de construções, reformas, galpões industriais e incorporações imobiliárias em Salvador e região.',
-  // Opcional: keywords, robots, etc. – mantenha mínimo se quiser leve
-  // keywords: ['construção civil', 'reformas Salvador', 'galpões pré-moldados'],
+    'Serviços especializados em construção civil: obras industriais, comerciais, hospitalares, hotelaria, infraestrutura, incorporação imobiliária e projetos de engenharia em Salvador e região.',
+  keywords: [
+    'construção civil',
+    'obras industriais',
+    'obras comerciais',
+    'obras hospitalares',
+    'hotelaria',
+    'infraestrutura',
+    'incorporação imobiliária',
+    'projetos de engenharia',
+    'construção Salvador',
+    'construtora Bahia',
+  ],
   openGraph: {
-    title: 'Projetos - Construtora AEL',
-    description: 'Obras rápidas, seguras e de alta qualidade. Veja nosso portfólio.',
-    // url: 'https://www.construtoraael.com/projetos', // opcional
-    // images: '/og-projetos.jpg', // se tiver imagem específica
+    title: 'Serviços - Construtora AEL',
+    description:
+      'Serviços especializados em construção civil com qualidade, segurança e pontualidade. Obras industriais, comerciais, hospitalares e muito mais.',
+    type: 'website',
+    // url: 'https://www.construtoraael.com/servicos',
+    // images: '/og-servicos.jpg',
   },
-  // Alternativa super simples se quiser ainda mais leve:
-  // title: { default: 'Projetos | Construtora AEL' },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Serviços - Construtora AEL',
+    description:
+      'Serviços especializados em construção civil com qualidade, segurança e pontualidade.',
+  },
+  alternates: {
+    canonical: '/servicos',
+  },
 };
 
-export default function ProjetosLayout({ children }: { children: ReactNode }) {
+export default function ServicosLayout({ children }: { children: ReactNode }) {
   return (
-    <>
-      {/* Aqui você pode colocar UI compartilhada só para a seção /projetos */}
-      {/* Ex: um header diferente, sidebar, breadcrumbs, etc. */}
-
-      <main className="min-h-screen bg-gray-50">
-        {/* Exemplo de seção compartilhada */}
-
-        {/* O conteúdo da página (page.tsx) entra aqui */}
-        {children}
-      </main>
-
-      {/* Footer específico da seção, se quiser */}
-    </>
+    <main className="min-h-screen bg-gray-50">
+      {children}
+    </main>
   );
 }
