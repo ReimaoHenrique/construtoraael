@@ -7,7 +7,7 @@ import { CardImage } from '@/components/blocks/CardProject';
 import { DotPattern } from '@/components/ui/dot-pattern';
 import { cn } from '@/lib/utils';
 import { MediaOverlay } from '@/components/blocks/MediaOverlay';
-import { NewsletterModal } from '@/components/NewsletterCard';
+import { NewsletterModal } from '@/components/forms/NewsletterCard/NewsletterCard';
 import cards from '@/data/cardcomponente.json';
 
 export default function Home() {
