@@ -3,21 +3,29 @@ import { Marquee } from '@/components/ui/marquee';
 
 const parceiros = [
   { img: '/parceiros/itau.jpg', name: 'Itaú' },
-  { img: '/parceiros/Mercedes-Benz.svg', name: 'Mercedes-Benz' },
+  { img: '/parceiros/larco.jpg', name: 'Larco' },
+
+  { img: '/parceiros/Mercedes-Benz.svg', name: '' },
   { img: '/parceiros/petrobras.png', name: 'Petrobras' },
-  { img: '/parceiros/parqueshopping.png', name: 'Parque Shopping' },
-  { img: '/parceiros/Mercedes-Benz.svg', name: 'Mercedes-Benz' },
   { img: '/parceiros/shell.svg', name: 'Shell' },
-  { img: '/parceiros/Yamaha 3D Logo Vector.svg', name: 'Yamaha' },
+  //  { img: '/parceiros/Yamaha.svg', name: 'Yamaha' },
   { img: '/parceiros/guariroba.jpg', name: 'Guariroba' },
+  { img: '/parceiros/LIMA-VEICULOS.svg', name: 'Lima Veículos' },
+];
+const parceirosHorizontais = [
+  { img: '/parceiros/yamaha.png', name: 'Yamaha' },
+  { img: '/parceiros/parqueshopping.png', name: 'Parque Shopping' },
   { img: '/parceiros/dorothy.png', name: 'Dorothy' },
-  { img: '/parceiros/berimbau.png', name: 'Berimbau' },
+  { img: '/parceiros/transpetro.png', name: 'transpetro' },
+  { img: '/parceiros/cetrel.png', name: 'Cetrel' },
   { img: '/parceiros/loungecar.jpeg', name: 'LoungeCar' },
+  { img: '/parceiros/berimbau.png', name: 'Berimbau' },
+  { img: '/parceiros/timacagro.png', name: 'Timac Agro' },
+  { img: '/parceiros/hospital-de-brotas.webp', name: 'Hospital de Brotas' },
 ];
 
-const mid = Math.ceil(parceiros.length / 2);
-const firstRow = parceiros.slice(0, mid);
-const secondRow = parceiros.slice(mid);
+const firstRow = parceiros;
+const secondRow = parceirosHorizontais;
 
 const ReviewCard = ({ img, name }: { img: string; name: string }) => {
   return (
@@ -36,6 +44,22 @@ const ReviewCard = ({ img, name }: { img: string; name: string }) => {
   );
 };
 
+const ReviewCardHorizontal = ({ img, name }: { img: string; name: string }) => {
+  return (
+    <figure
+      className={cn(
+        'relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4',
+        'border-gray-950/10 bg-gray-950/1 hover:bg-gray-950/[.05]',
+        'dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]',
+      )}
+    >
+      <div className="flex items-center">
+        <img className="h-24 w-full object-contain" alt={name} src={img} />
+      </div>
+    </figure>
+  );
+};
+
 export function MarqueeLogos() {
   return (
     <div className="relative w-full overflow-hidden bg-white dark:bg-black space-y-4">
@@ -49,7 +73,7 @@ export function MarqueeLogos() {
       {/* Linha 2 → direita */}
       <Marquee reverse pauseOnHover className="[--duration:20s]">
         {secondRow.map((item, i) => (
-          <ReviewCard key={i} {...item} />
+          <ReviewCardHorizontal key={i} {...item} />
         ))}
       </Marquee>
 

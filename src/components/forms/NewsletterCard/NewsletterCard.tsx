@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { ComboboxItem, ComboboxList } from '@/components/ui/combobox';
 import { ComboboxMulti } from '@/components/ComboboxMulti';
 import { useNewsletterCard } from './useNewsletterCard';
 
@@ -154,21 +153,12 @@ export function NewsletterModal({ open, onClose }: { open: boolean; onClose: () 
                     {/* Serviços */}
                     <div className="grid gap-2">
                       <Label className="text-base font-medium">Áreas de interesse</Label>
-                      <ComboboxMulti
-                        items={tiposServico}
-                        value={services}
-                        onChange={setServices}
-                        placeholder="Selecione os serviços que mais te interessam..."
-                        className="min-h-[44px]"
-                      >
-                        <ComboboxList>
-                          {(item) => (
-                            <ComboboxItem key={item.value} value={item.value}>
-                              {item.label}
-                            </ComboboxItem>
-                          )}
-                        </ComboboxList>
-                      </ComboboxMulti>
+                    <ComboboxMulti
+                      items={tiposServico}
+                      value={services}
+                      onChange={setServices}
+                      placeholder="Selecione os serviços que mais te interessam..."
+                    />
                     </div>
 
                     {/* Botão */}
