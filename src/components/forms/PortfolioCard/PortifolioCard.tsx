@@ -27,25 +27,25 @@ const portfolioCategories: PortfolioCategory[] = [
     title: 'Hotelaria / Hospitalar',
     imageUrl: '/predio.jpg',
     portfolioRoute: '/portfolio/hotelaria',
-    buttonLabel: 'Ver exemplos',
+    buttonLabel: 'Baixar portfólio',
   },
   {
     title: 'Obras Industriais',
-    imageUrl: '/industrial.jpg',
+    imageUrl: '/servicos-hero.jpg',
     portfolioRoute: '/portfolio/industrial',
-    buttonLabel: 'Ver exemplos',
+    buttonLabel: 'Baixar portfólio',
   },
   {
     title: 'Obras Comerciais',
-    imageUrl: '/comercial.jpg',
+    imageUrl: '/obras-industriais.jpg',
     portfolioRoute: '/portfolio/comercial',
-    buttonLabel: 'Ver exemplos',
+    buttonLabel: 'Baixar portfólio',
   },
   {
     title: 'Incorporação Imobiliária',
-    imageUrl: '/residencial.jpg',
+    imageUrl: '/incorporacao-imobiliaria.jpg',
     portfolioRoute: '/portfolio/incorporacao',
-    buttonLabel: 'Ver exemplos',
+    buttonLabel: 'Baixar portfólio',
   },
 ];
 
@@ -72,9 +72,7 @@ function PortfolioCard({ category }: { category: PortfolioCategory }) {
             </Button>
           </AlertDialogTrigger>
           <AlertDialogContent className="max-h-[85vh] overflow-y-auto">
-            <AlertDialogCancel className="absolute right-3 top-3">
-              Fechar
-            </AlertDialogCancel>
+            <AlertDialogCancel className="absolute right-3 top-3">Fechar</AlertDialogCancel>
             <AlertDialogHeader>
               <AlertDialogTitle>{category.title}</AlertDialogTitle>
             </AlertDialogHeader>
