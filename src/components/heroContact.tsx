@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
+import Link from 'next/link';
 export function ContactHero() {
   return (
     <section className="relative w-full h-screen overflow-hidden bg-blue-900">
@@ -53,15 +53,14 @@ export function ContactHero() {
           >
             Falar no WhatsApp
           </motion.a>
-
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="#form"
+          <Link
             className="px-8 py-3 bg-white text-black hover:bg-gray-200 rounded-lg font-semibold"
+            href="/trabalhe-conosco"
           >
-            Solicitar orçamento
-          </motion.a>
+            <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href="#form">
+              trabalhe conosco
+            </motion.a>
+          </Link>
         </div>
       </motion.div>
     </section>

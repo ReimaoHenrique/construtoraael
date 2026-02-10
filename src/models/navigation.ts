@@ -40,7 +40,7 @@ export const navigationData: NavLink[] = [
       { label: 'Sobre a Empresa', href: '/empresa/sobre' },
       { label: 'Missão, Visão e Valores', href: '/empresa/missao-visao-valores' },
       { label: 'Política da Qualidade', href: '/empresa/politica-da-qualidade' },
-      { label: 'Certificações', href: '/empresa/certificacoes' },
+      { label: 'Trabalhe Conosco', href: '/trabalhe-conosco' },
       { label: 'Portal de Denúncias', href: '/portal-de-denuncias' },
     ],
   },

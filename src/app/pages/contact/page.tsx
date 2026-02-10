@@ -3,7 +3,7 @@
 import { ContactHero } from '@/components/heroContact';
 
 export default function Page() {
-  const whatsappNumber = '5511999999999';
+  const whatsappNumber = '557188880504';
   const whatsappMessage = encodeURIComponent('Olá, gostaria de falar com vocês.');
 
   return (
@@ -19,7 +19,7 @@ export default function Page() {
 
             <div className="text-gray-700">
               <p className="font-medium">Email:</p>
-              <p className="select-all text-sm text-gray-900">contato@seudominio.com</p>
+              <p className="select-all text-sm text-gray-900">comercial@construtoraael.com</p>
             </div>
 
             <a
