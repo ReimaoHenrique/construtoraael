@@ -27,12 +27,21 @@ export function NewsletterModal({ open, onClose }: { open: boolean; onClose: () 
     setName,
     email,
     setEmail,
+    linkedin,
+    setLinkedin,
     services,
     setServices,
+    allAreasSelected,
+    setAllAreasSelected,
     isSubmitting,
     showSuccess,
     submit,
   } = useNewsletterCard({ onClose });
+
+  const handleSelectAllAreas = (checked: boolean) => {
+    setAllAreasSelected(checked);
+    setServices(checked ? [...tiposServico] : []);
+  };
 
   return (
     <>
@@ -150,13 +159,43 @@ export function NewsletterModal({ open, onClose }: { open: boolean; onClose: () 
                       />
                     </div>
 
+                    {/* LinkedIn */}
+                    <div className="grid gap-2">
+                      <Label htmlFor="linkedin" className="text-base font-medium">
+                        LinkedIn
+                      </Label>
+                      <Input
+                        id="linkedin"
+                        type="url"
+                        placeholder="https://linkedin.com/in/seu-perfil"
+                        value={linkedin}
+                        onChange={(e) => setLinkedin(e.target.value)}
+                        className="h-11 text-base"
+                      />
+                    </div>
+
                     {/* Serviços */}
                     <div className="grid gap-2">
                       <Label className="text-base font-medium">Áreas de interesse</Label>
+                      <div className="flex items-center gap-2">
+                        <Input
+                          id="select-all-areas"
+                          type="checkbox"
+                          checked={allAreasSelected}
+                          onChange={(e) => handleSelectAllAreas(e.target.checked)}
+                          className="h-4 w-4"
+                        />
+                        <Label htmlFor="select-all-areas" className="text-sm font-normal">
+                          Selecionar todas as áreas
+                        </Label>
+                      </div>
                     <ComboboxMulti
                       items={tiposServico}
                       value={services}
-                      onChange={setServices}
+                      onChange={(nextServices) => {
+                        setServices(nextServices);
+                        setAllAreasSelected(nextServices.length === tiposServico.length);
+                      }}
                       placeholder="Selecione os serviços que mais te interessam..."
                     />
                     </div>

@@ -5,7 +5,9 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 type NewsletterPayload = {
   name: string;
   email: string;
+  linkedin: string;
   services: string[];
+  allAreasSelected: boolean;
 };
 
 type UseNewsletterCardOptions = {
@@ -16,7 +18,9 @@ type UseNewsletterCardOptions = {
 export function useNewsletterCard({ onClose, endpoint }: UseNewsletterCardOptions) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [linkedin, setLinkedin] = useState('');
   const [services, setServices] = useState<string[]>([]);
+  const [allAreasSelected, setAllAreasSelected] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -32,9 +36,11 @@ export function useNewsletterCard({ onClose, endpoint }: UseNewsletterCardOption
     () => ({
       name,
       email,
+      linkedin,
       services,
+      allAreasSelected,
     }),
-    [name, email, services]
+    [name, email, linkedin, services, allAreasSelected]
   );
 
   const submit = useCallback(
@@ -47,7 +53,7 @@ export function useNewsletterCard({ onClose, endpoint }: UseNewsletterCardOption
       const url =
         endpoint ??
         process.env.NEXT_PUBLIC_NEWSLETTER_BFF_URL ??
-        'https://nestjs-gamma-five.vercel.app/';
+        '/api/newsletter';
 
       try {
         await fetch(url, {
@@ -70,8 +76,12 @@ export function useNewsletterCard({ onClose, endpoint }: UseNewsletterCardOption
     setName,
     email,
     setEmail,
+    linkedin,
+    setLinkedin,
     services,
     setServices,
+    allAreasSelected,
+    setAllAreasSelected,
     isSubmitting,
     showSuccess,
     payload,
