@@ -46,6 +46,21 @@ export function DrawerMenu() {
 
         {/* MOBILE - com Accordion */}
         <nav className="block md:hidden px-5 py-6">
+          <div className="mb-4 grid grid-cols-2 gap-2">
+            <Link
+              href="/blog"
+              className="rounded-md px-4 py-2.5 text-center text-sm font-semibold text-white"
+            >
+              Blog
+            </Link>
+            <Link
+              href="/trabalhe-conosco"
+              className="rounded-lg bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+            >
+              Trabalhe
+            </Link>
+          </div>
+
           <Accordion type="single" collapsible className="flex flex-col gap-2">
             {navigationData.map((item) => {
               const isSpecial = isSpecialItem(item.label); // Portfólio / Contato

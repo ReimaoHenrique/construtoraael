@@ -46,17 +46,7 @@ export default async function BlogOgImage({ params }: BlogOgImageProps) {
     return new ImageResponse(
       (
         <div
-          style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)',
-            color: '#fff',
-            fontSize: 56,
-            fontWeight: 800,
-          }}
+          style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f8f7f3', color: '#111827', fontSize: 56, fontWeight: 800 }}
         >
           Blog A&L
         </div>
@@ -78,91 +68,179 @@ export default async function BlogOgImage({ params }: BlogOgImageProps) {
           height: '100%',
           display: 'flex',
           position: 'relative',
-          background: '#020617',
-          color: '#fff',
+          background: '#f8f7f3',
+          color: '#111827',
           overflow: 'hidden',
-          fontFamily: 'Arial, sans-serif',
+          fontFamily: 'Georgia, Times New Roman, serif',
         }}
       >
-        {coverDataUrl && (
-          <img
-            src={coverDataUrl}
-            alt={post.title}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }}
-          />
-        )}
-
         <div
           style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(120deg, rgba(2,6,23,0.88) 18%, rgba(2,6,23,0.55) 62%, rgba(2,6,23,0.82) 100%)',
-          }}
-        />
-
-        <div
-          style={{
-            position: 'relative',
-            zIndex: 1,
             display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
             width: '100%',
-            padding: '48px 56px',
+            height: '100%',
+            padding: 48,
+            gap: 28,
           }}
         >
           <div
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              padding: '10px 16px',
-              borderRadius: 999,
-              border: '1px solid rgba(255,255,255,0.35)',
-              background: 'rgba(15,23,42,0.42)',
-              fontSize: 22,
-              fontWeight: 700,
-              width: 'fit-content',
+              width: '66%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              border: '1px solid #e5e7eb',
+              borderRadius: 22,
+              background: '#ffffff',
+              padding: '38px 40px',
             }}
           >
-            Blog Construtora A&L
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 980 }}>
             <div
               style={{
-                fontSize: 60,
-                lineHeight: 1.03,
-                letterSpacing: -1.2,
-                fontWeight: 800,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                width: '100%',
               }}
             >
-              {post.title}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div
+                  style={{
+                    width: 28,
+                    height: 28,
+                    borderRadius: 999,
+                    background: '#111827',
+                    color: '#fff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: 'Arial, sans-serif',
+                    fontSize: 13,
+                    fontWeight: 700,
+                  }}
+                >
+                  A&L
+                </div>
+                <span style={{ fontFamily: 'Arial, sans-serif', fontSize: 18, color: '#374151' }}>
+                  Blog Andrade & Lima
+                </span>
+              </div>
+              <span style={{ fontFamily: 'Arial, sans-serif', fontSize: 16, color: '#6b7280' }}>
+                {post.date}
+              </span>
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 14,
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 58,
+                  lineHeight: 1.02,
+                  letterSpacing: -1,
+                  fontWeight: 700,
+                  color: '#111827',
+                }}
+              >
+                {post.title}
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 14,
+              }}
+            >
+              {authorDataUrl && (
+                <img
+                  src={authorDataUrl}
+                  alt={post.author.name}
+                  style={{
+                    width: 58,
+                    height: 58,
+                    borderRadius: 999,
+                    objectFit: 'cover',
+                    border: '1px solid #d1d5db',
+                  }}
+                />
+              )}
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span style={{ fontFamily: 'Arial, sans-serif', fontSize: 20, fontWeight: 700 }}>
+                  {post.author.name}
+                </span>
+                <span style={{ fontFamily: 'Arial, sans-serif', fontSize: 16, color: '#6b7280' }}>
+                  Engenheiro Civil • Construtora A&L
+                </span>
+              </div>
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            {authorDataUrl && (
-              <img
-                src={authorDataUrl}
-                alt={post.author.name}
-                style={{
-                  width: 66,
-                  height: 66,
-                  borderRadius: 999,
-                  objectFit: 'cover',
-                  border: '2px solid rgba(255,255,255,0.75)',
-                }}
-              />
-            )}
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span style={{ fontSize: 24, fontWeight: 700 }}>{post.author.name}</span>
-              <span style={{ fontSize: 20, color: 'rgba(226,232,240,0.94)' }}>construtoraael.com</span>
+          <div
+            style={{
+              width: '34%',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 12,
+            }}
+          >
+            <div
+              style={{
+                flex: 1,
+                borderRadius: 22,
+                border: '1px solid #e5e7eb',
+                overflow: 'hidden',
+                background: '#e5e7eb',
+              }}
+            >
+              {coverDataUrl ? (
+                <img
+                  src={coverDataUrl}
+                  alt={post.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
+              ) : (
+                <div
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: 'Arial, sans-serif',
+                    color: '#6b7280',
+                    fontSize: 18,
+                  }}
+                >
+                  Sem capa
+                </div>
+              )}
+            </div>
+
+            <div
+              style={{
+                height: 52,
+                borderRadius: 14,
+                border: '1px solid #e5e7eb',
+                background: '#fff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontFamily: 'Arial, sans-serif',
+                fontSize: 16,
+                color: '#4b5563',
+              }}
+            >
+              construtoraael.com
             </div>
           </div>
         </div>
@@ -171,4 +249,3 @@ export default async function BlogOgImage({ params }: BlogOgImageProps) {
     size,
   );
 }
-

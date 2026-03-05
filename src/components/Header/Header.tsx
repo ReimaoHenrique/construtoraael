@@ -77,6 +77,21 @@ export default function Header() {
             ))}
           </nav>
 
+          <div className="hidden xl:flex items-center gap-2 ml-4">
+            <Link
+              href="/blog"
+              className="inline-flex items-center px-2 py-1 text-sm font-semibold text-white hover:text-blue-200 transition"
+            >
+              Blog
+            </Link>
+            <Link
+              href="/trabalhe-conosco"
+              className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+            >
+              Trabalhe Conosco
+            </Link>
+          </div>
+
           {/* Hamburger — Mobile + Tablet */}
           <div className="md:flex lg:hidden">
             <DrawerMenu />
