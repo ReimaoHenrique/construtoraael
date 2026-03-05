@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
 
-  // Open Graph completo com PNG
+  // Open Graph
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
       'Construção civil, reformas e incorporações com qualidade, prazo e responsabilidade técnica.',
     images: [
       {
-        url: '/og-image.png', // Coloque o arquivo em public/og-image.png
-        width: 424,
-        height: 754,
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
         alt: 'Construtora Andrade & Lima - Obras com qualidade e responsabilidade',
         type: 'image/png',
       },
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: 'Construtora Andrade & Lima',
     description:
       'Construção civil, reformas e incorporações com qualidade, prazo e responsabilidade técnica.',
-    images: ['/og-image.png'], // Pode ser o mesmo PNG
+    images: ['/opengraph-image'],
   },
 
   robots: {

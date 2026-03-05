@@ -3,13 +3,33 @@ import path from 'path';
 
 const BLOG_DIR = path.join(process.cwd(), 'src/data/blog');
 
+interface BlogMedia {
+  coverImage: string;
+  heroImage: string;
+  gallery?: string[];
+  author?: {
+    name: string;
+    linkedin: string;
+    medium: string;
+    foto: string;
+  };
+}
+
 export interface BlogPostMeta {
   id: string;
   title: string;
   description: string;
   image: string;
+  heroImage: string;
+  gallery: string[];
   cta: string;
   date: string;
+  author: {
+    name: string;
+    linkedin: string;
+    medium: string;
+    foto: string;
+  };
 }
 
 export interface BlogPost extends BlogPostMeta {
@@ -46,26 +66,51 @@ function sortByDateDesc(a: BlogPostMeta, b: BlogPostMeta): number {
   return new Date(b.date).getTime() - new Date(a.date).getTime();
 }
 
+async function getMediaById(id: string): Promise<BlogMedia | null> {
+  const mediaPath = path.join(BLOG_DIR, id, 'media.json');
+
+  try {
+    const rawMedia = await fs.readFile(mediaPath, 'utf8');
+    return JSON.parse(rawMedia) as BlogMedia;
+  } catch {
+    return null;
+  }
+}
+
+async function buildPostMeta(id: string, data: Record<string, string>): Promise<BlogPostMeta> {
+  const media = await getMediaById(id);
+
+  return {
+    id,
+    title: data.title ?? id,
+    description: data.description ?? 'Sem descrição cadastrada.',
+    image: media?.coverImage ?? data.image ?? '/Projetos.jpg',
+    heroImage: media?.heroImage ?? data.image ?? '/Projetos.jpg',
+    gallery: media?.gallery ?? [],
+    cta: data.cta ?? 'Ler matéria',
+    date: data.date ?? '1970-01-01',
+    author: media?.author ?? {
+      name: 'Matehus Andrade',
+      linkedin: 'https://www.linkedin.com/in/matehus-andrade/',
+      medium: 'https://medium.com/@matehusandrade',
+      foto: '/blog/autores/matehus-andrade/foto.jpg',
+    },
+  };
+}
+
 export async function getAllBlogPosts(): Promise<BlogPostMeta[]> {
-  const files = await fs.readdir(BLOG_DIR);
+  const entries = await fs.readdir(BLOG_DIR, { withFileTypes: true });
 
   const posts = await Promise.all(
-    files
-      .filter((file) => file.endsWith('.md'))
-      .map(async (file) => {
-        const id = file.replace(/\.md$/, '');
-        const fullPath = path.join(BLOG_DIR, file);
+    entries
+      .filter((entry) => entry.isDirectory())
+      .map(async (entry) => {
+        const id = entry.name;
+        const fullPath = path.join(BLOG_DIR, id, 'blog.md');
         const raw = await fs.readFile(fullPath, 'utf8');
         const { data } = parseFrontmatter(raw);
 
-        return {
-          id,
-          title: data.title ?? id,
-          description: data.description ?? 'Sem descrição cadastrada.',
-          image: data.image ?? '/Projetos.jpg',
-          cta: data.cta ?? 'Ler matéria',
-          date: data.date ?? '1970-01-01',
-        } satisfies BlogPostMeta;
+        return buildPostMeta(id, data);
       }),
   );
 
@@ -73,19 +118,14 @@ export async function getAllBlogPosts(): Promise<BlogPostMeta[]> {
 }
 
 export async function getBlogPostById(id: string): Promise<BlogPost | null> {
-  const filePath = path.join(BLOG_DIR, `${id}.md`);
+  const filePath = path.join(BLOG_DIR, id, 'blog.md');
 
   try {
     const raw = await fs.readFile(filePath, 'utf8');
     const { data, content } = parseFrontmatter(raw);
 
     return {
-      id,
-      title: data.title ?? id,
-      description: data.description ?? 'Sem descrição cadastrada.',
-      image: data.image ?? '/Projetos.jpg',
-      cta: data.cta ?? 'Ler matéria',
-      date: data.date ?? '1970-01-01',
+      ...(await buildPostMeta(id, data)),
       content,
     };
   } catch {

@@ -1,0 +1,15 @@
+{
+  "coverImage": "/blog/capas/infra-capa.jpg",
+  "heroImage": "/blog/heroes/infra-hero.jpg",
+  "gallery": [
+    "/blog/galeria/obra-1.jpg",
+    "/blog/galeria/obra-4.jpg",
+    "/blog/galeria/obra-5.jpg"
+  ],
+  "author": {
+    "name": "Matehus Andrade",
+    "linkedin": "https://www.linkedin.com/in/matehus-andrade/",
+    "medium": "https://medium.com/@matehusandrade",
+    "foto": "/blog/autores/matehus-andrade/foto.jpg"
+  }
+}

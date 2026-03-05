@@ -1,64 +1,12 @@
 import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { BookOpenText, Linkedin } from 'lucide-react';
+import { BlogArticleBody } from '@/components/blog/BlogArticleBody';
 import { getAllBlogPosts, getBlogPostById } from '@/lib/blog';
 
 interface BlogDetailPageProps {
   params: Promise<{ id: string }>;
-}
-
-function renderMarkdown(content: string): ReactNode[] {
-  const blocks = content.split(/\n\s*\n/);
-
-  return blocks
-    .map((block) => block.trim())
-    .filter(Boolean)
-    .map((block, index) => {
-      if (block.startsWith('# ')) {
-        return (
-          <h1 key={index} className="text-3xl font-bold tracking-tight text-slate-900">
-            {block.replace(/^#\s+/, '')}
-          </h1>
-        );
-      }
-
-      if (block.startsWith('## ')) {
-        return (
-          <h2 key={index} className="mt-8 text-2xl font-semibold text-slate-900">
-            {block.replace(/^##\s+/, '')}
-          </h2>
-        );
-      }
-
-      if (block.startsWith('### ')) {
-        return (
-          <h3 key={index} className="mt-6 text-xl font-semibold text-slate-900">
-            {block.replace(/^###\s+/, '')}
-          </h3>
-        );
-      }
-
-      const listItems = block
-        .split('\n')
-        .map((line) => line.trim())
-        .filter((line) => line.startsWith('- '));
-
-      if (listItems.length > 0 && listItems.length === block.split('\n').length) {
-        return (
-          <ul key={index} className="ml-6 list-disc space-y-2 text-slate-700">
-            {listItems.map((item, itemIndex) => (
-              <li key={itemIndex}>{item.replace(/^-\s+/, '')}</li>
-            ))}
-          </ul>
-        );
-      }
-
-      return (
-        <p key={index} className="text-lg leading-relaxed text-slate-700">
-          {block}
-        </p>
-      );
-    });
 }
 
 export async function generateMetadata({ params }: BlogDetailPageProps): Promise<Metadata> {
@@ -72,6 +20,12 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
   return {
     title: post.title,
     description: post.description,
+    openGraph: {
+      images: [`/blog/${id}/opengraph-image`],
+    },
+    twitter: {
+      images: [`/blog/${id}/opengraph-image`],
+    },
   };
 }
 
@@ -89,14 +43,48 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   }
 
   return (
-    <article className="mx-auto max-w-4xl px-6 py-16">
-      <header className="mb-10">
-        <p className="text-sm uppercase tracking-[0.16em] text-slate-500">Publicado em {post.date}</p>
-        <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900">{post.title}</h1>
-        <p className="mt-4 text-xl text-slate-700">{post.description}</p>
-      </header>
+    <article className="pb-16">
+      <section className="relative h-[48vh] min-h-[360px] w-full overflow-hidden">
+        <Image src={post.heroImage} alt={post.title} fill priority className="object-cover" sizes="100vw" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/40 to-black/30" />
+        <div className="absolute inset-0 flex items-end">
+          <div className="mx-auto w-full max-w-5xl px-6 pb-10 text-white">
+            <p className="text-sm uppercase tracking-[0.16em] text-slate-200">Publicado em {post.date}</p>
+            <h1 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">{post.title}</h1>
+            <p className="mt-4 max-w-3xl text-lg text-slate-100 md:text-xl">{post.description}</p>
+            <div className="mt-6 inline-flex items-center gap-3 rounded-full bg-black/40 px-4 py-2 backdrop-blur">
+              <div className="relative h-9 w-9 overflow-hidden rounded-full ring-1 ring-white/50">
+                <Image src={post.author.foto} alt={post.author.name} fill className="object-cover" />
+              </div>
+              <span className="text-sm text-slate-200">Por {post.author.name}</span>
+              <a
+                href={post.author.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`LinkedIn de ${post.author.name}`}
+                title="LinkedIn"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href={post.author.medium}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Medium de ${post.author.name}`}
+                title="Medium"
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10"
+              >
+                <BookOpenText className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div className="space-y-6">{renderMarkdown(post.content)}</div>
+      <section className="mx-auto mt-12 max-w-5xl px-6">
+        <BlogArticleBody content={post.content} gallery={post.gallery} />
+      </section>
     </article>
   );
 }
