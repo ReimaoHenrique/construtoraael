@@ -1,13 +1,11 @@
 import { NextResponse } from 'next/server';
 
-const DEFAULT_UPSTREAM = 'https://parceiros-ael.vercel.app';
+const DEFAULT_UPSTREAM = 'https://parceiros-ael.vercel.app/parceiros';
 
 export async function POST(req: Request) {
   const body = await req.json();
   const upstream =
-    process.env.PARCEIROS_BFF_URL ??
-    process.env.NEXT_PUBLIC_PARCEIROS_BFF_URL ??
-    DEFAULT_UPSTREAM;
+    process.env.PARCEIROS_BFF_URL ?? process.env.NEXT_PUBLIC_PARCEIROS_BFF_URL ?? DEFAULT_UPSTREAM;
 
   try {
     const response = await fetch(upstream, {
