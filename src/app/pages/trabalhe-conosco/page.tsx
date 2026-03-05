@@ -24,15 +24,52 @@ export default function Page() {
     linkedin: '',
     mensagem: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState<string | null>(null);
+  const [feedbackType, setFeedbackType] = useState<'success' | 'error' | null>(null);
 
   function update(field: string, value: string) {
     setForm((p) => ({ ...p, [field]: value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log(form);
-    alert('Obrigado! Recebemos seu interesse.');
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setFeedback(null);
+    setFeedbackType(null);
+
+    try {
+      const response = await fetch('/api/parceiros', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        throw new Error('Falha ao enviar candidatura');
+      }
+
+      setFeedback('Obrigado! Recebemos seu interesse.');
+      setFeedbackType('success');
+      setForm({
+        nome: '',
+        email: '',
+        telefone: '',
+        cidade: '',
+        area: '',
+        linkedin: '',
+        mensagem: '',
+      });
+    } catch {
+      setFeedback(
+        'Nao foi possivel enviar sua candidatura agora. Tente novamente em alguns minutos.',
+      );
+      setFeedbackType('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -164,7 +201,7 @@ export default function Page() {
 
               <div className="grid gap-2">
                 <label className="text-sm font-medium text-neutral-900" htmlFor="mensagem">
-                  Conte sobre sua experiência
+                  Conte sobre sua experiência (opcional)
                 </label>
                 <textarea
                   id="mensagem"
@@ -176,6 +213,7 @@ export default function Page() {
                 />
               </div>
 
+              {/* Upload de currículo temporariamente desabilitado por falta de bucket/storage
               <div className="grid gap-2">
                 <label className="text-sm font-medium text-neutral-900" htmlFor="curriculo">
                   Currículo (PDF)
@@ -190,13 +228,22 @@ export default function Page() {
                   No momento, o envio é apenas para cadastro interno.
                 </p>
               </div>
+              */}
 
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="bg-black text-white rounded-md py-3 font-medium hover:opacity-90 transition mt-2"
               >
-                Enviar candidatura
+                {isSubmitting ? 'Enviando...' : 'Enviar candidatura'}
               </button>
+              {feedback ? (
+                <p
+                  className={`text-sm ${feedbackType === 'success' ? 'text-green-700' : 'text-red-700'}`}
+                >
+                  {feedback}
+                </p>
+              ) : null}
             </form>
           </div>
         </div>
