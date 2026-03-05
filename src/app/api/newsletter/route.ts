@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const DEFAULT_UPSTREAM = 'https://www.meudomio.com.br';
+const DEFAULT_UPSTREAM = 'https://newsletter-ael.vercel.app/subscribers';
 
 export async function POST(req: Request) {
   const body = await req.json();
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json(
       { message: 'Falha ao enviar newsletter para o serviço externo.' },
-      { status: 502 }
+      { status: 502 },
     );
   }
 }
