@@ -9,9 +9,17 @@ interface CardImageProps {
   image: string;
   cta: string;
   slug?: string;
+  hrefPrefix?: string;
 }
 
-export function CardImage({ title, description, image, cta, slug }: CardImageProps) {
+export function CardImage({
+  title,
+  description,
+  image,
+  cta,
+  slug,
+  hrefPrefix = '/projetos',
+}: CardImageProps) {
   return (
     <Card
       className={`
@@ -73,7 +81,7 @@ export function CardImage({ title, description, image, cta, slug }: CardImagePro
 
         <div className="mt-6 md:mt-8">
           {slug ? (
-            <Link href={`/projetos/${slug}`}>
+            <Link href={`${hrefPrefix}/${slug}`}>
               <Button
                 size="lg"
                 className="

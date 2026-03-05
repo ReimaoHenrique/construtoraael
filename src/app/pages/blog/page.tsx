@@ -1,15 +1,31 @@
-export default function Page() {
+import { CardImage } from '@/components/blocks/CardProject';
+import { getAllBlogPosts } from '@/lib/blog';
+
+export default async function BlogPage() {
+  const posts = await getAllBlogPosts();
+
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-16 bg-neutral-50">
-      <div className="max-w-2xl text-center space-y-6">
-        <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-1 text-xs uppercase tracking-[0.2em] text-neutral-500">
-          Blog
-        </span>
-        <h1 className="text-4xl font-bold tracking-tight text-neutral-900">Em construção</h1>
-        <p className="text-neutral-700 leading-relaxed">
-          Estamos preparando conteúdos com dicas técnicas, bastidores de obras e novidades da AEL.
+    <section className="mx-auto max-w-7xl px-6 py-16">
+      <header className="mb-12 text-center">
+        <p className="mb-3 text-sm uppercase tracking-[0.2em] text-slate-500">Blog</p>
+        <h1 className="text-4xl font-bold tracking-tight text-slate-900">Matérias e conteúdos</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-slate-700">
+          Acompanhe novidades, bastidores de obras e conteúdos técnicos da Andrade & Lima.
         </p>
-        <p className="text-sm text-neutral-500">Volte em breve para acompanhar.</p>
+      </header>
+
+      <div className="flex flex-wrap justify-center gap-6">
+        {posts.map((post) => (
+          <CardImage
+            key={post.id}
+            title={post.title}
+            description={post.description}
+            image={post.image}
+            cta={post.cta}
+            slug={post.id}
+            hrefPrefix="/blog"
+          />
+        ))}
       </div>
     </section>
   );
