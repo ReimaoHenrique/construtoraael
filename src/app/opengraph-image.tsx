@@ -1,3 +1,5 @@
+import { promises as fs } from 'fs';
+import path from 'path';
 import { ImageResponse } from 'next/og';
 
 export const size = {
@@ -7,7 +9,11 @@ export const size = {
 
 export const contentType = 'image/png';
 
-export default function OpenGraphImage() {
+export default async function OpenGraphImage() {
+  const logoPath = path.join(process.cwd(), 'public', 'logo.avif');
+  const logoFile = await fs.readFile(logoPath);
+  const logoData = `data:image/avif;base64,${logoFile.toString('base64')}`;
+
   return new ImageResponse(
     (
       <div
@@ -80,19 +86,27 @@ export default function OpenGraphImage() {
           >
             <div
               style={{
-                width: 58,
-                height: 58,
+                width: 88,
+                height: 88,
                 borderRadius: 12,
                 border: '2px solid rgba(255,255,255,0.28)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 22,
-                fontWeight: 800,
+                overflow: 'hidden',
                 background: 'rgba(255,255,255,0.08)',
+                padding: 8,
               }}
             >
-              A&L
+              <img
+                src={logoData}
+                alt="Logo da Construtora Andrade & Lima"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                }}
+              />
             </div>
             <span>Construtora Andrade & Lima</span>
           </div>
@@ -117,7 +131,7 @@ export default function OpenGraphImage() {
                 letterSpacing: -1.2,
               }}
             >
-              Construindo com tecnica, prazo e responsabilidade.
+Nós construimos.
             </div>
           </div>
 
