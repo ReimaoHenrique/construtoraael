@@ -19,18 +19,19 @@ export const metadata: Metadata = {
   creator: 'Construtora Andrade & Lima',
   metadataBase: new URL('https://www.construtoraael.com'),
 
-  // Ícones (já estava bom, mantive e organizei melhor)
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      { url: '/favicon/favicon.ico' },
+      { url: '/favicon/icon0.svg', type: 'image/svg+xml' },
+      { url: '/favicon/icon1.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: '/favicon/apple-icon.png',
     other: [
-      { rel: 'icon', url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { rel: 'icon', url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { rel: 'mask-icon', url: '/favicon/icon0.svg', color: '#0f172a' },
     ],
   },
-  manifest: '/site.webmanifest',
+  manifest: '/favicon/manifest.json',
 
-  // Open Graph
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
@@ -50,7 +51,6 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter/X Cards (melhora previews no X)
   twitter: {
     card: 'summary_large_image',
     title: 'Construtora Andrade & Lima',
