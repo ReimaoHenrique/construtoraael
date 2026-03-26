@@ -12,8 +12,7 @@ export const contentType = 'image/png';
 export default function OpenGraphImage() {
   // URL Absoluta para a imagem na pasta public
   const siteUrl = 'https://www.construtoraael.com';
-  const logoUrl = `${siteUrl}/logo.png`; // Certifique-se de converter para .png
-
+  const logoUrl = `${siteUrl}/logo.png`; 
   return new ImageResponse(
     (
       <div
