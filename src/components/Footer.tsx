@@ -34,6 +34,9 @@ export function Footer() {
             <Link className="hover:text-white transition" href="/trabalhe-conosco">
               Trabalhe Conosco
             </Link>
+            <Link className="hover:text-white transition" href="https://portal.construtoraael.com" target="_blank" rel="noopener noreferrer">
+              Central do Colaborador
+            </Link>
           </div>
         </div>
       </div>

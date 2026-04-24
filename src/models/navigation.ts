@@ -3,6 +3,7 @@ export interface NavLink {
   href: string;
   sublinks?: NavLink[];
   description?: string;
+  external?: boolean;
 }
 
 export const navigationData: NavLink[] = [
@@ -42,6 +43,7 @@ export const navigationData: NavLink[] = [
       { label: 'Política da Qualidade', href: '/empresa/politica-da-qualidade' },
       { label: 'Trabalhe Conosco', href: '/trabalhe-conosco' },
       { label: 'Portal de Denúncias', href: '/portal-de-denuncias' },
+      { label: 'Central do Colaborador', href: 'https://portal.construtoraael.com', external: true },
     ],
   },
   {
